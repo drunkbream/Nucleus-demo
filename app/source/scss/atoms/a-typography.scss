@@ -1,0 +1,23 @@
+@import 'common/mixins';
+@import 'data/atom-typography';
+@import 'data/atom-header';
+
+@mixin atom-typography($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+    $title-default: (
+      text: (font-size, text-transform, line-height, font-weight, letter-spacing, color, (display, inline-block)),
+      margin: (
+        (margin-bottom, width),
+      ),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @include set-state-props(mdg($atom, default, $name), $title-default);
+      }
+    }
+  }
+};
+
+@include atom-typography($atom-typography);

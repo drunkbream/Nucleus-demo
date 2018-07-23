@@ -1,0 +1,130 @@
+
+  @import 'nucleons_offset';
+  @import 'nucleons_height';
+  @import 'nucleons_background';
+  @import 'nucleons_typography_sizes';
+  @import 'nucleons_typography_themes';
+
+  $atom-list: (
+    active: (
+      list-item: (
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-xs),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        item: (
+          background: mdg($nucleons_background, b-one),
+          height: mdg($nucleons_height, h-sm-m),
+          width: 238px,
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        col-right: (
+          font-family: mdg($nucleons_typography_sizes, t-caption2-fat, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-caption2-fat, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-caption2-fat, letter-spacing),
+          text-align: mdg($nucleons_typography_sizes, t-caption2-fat, text-align),
+          line-height: mdg($nucleons_typography_sizes, t-caption2-fat, line-height),
+          extend: 't-caption2-fat',
+          text-transform: mdg($nucleons_typography_sizes, t-caption2-fat, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-caption2-fat, font-weight)
+        ),
+        col-left: (
+          font-family: mdg($nucleons_typography_sizes, t-caption2-fat, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-caption2-fat, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-caption2-fat, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-caption2-fat, line-height),
+          extend: 't-caption2-fat',
+          text-transform: mdg($nucleons_typography_sizes, t-caption2-fat, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-caption2-fat, font-weight)
+        )
+      )
+    ),
+    hover: (
+      list-item: (
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-xs),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        item: (
+          background: mdg($nucleons_background, b-secondary-hi),
+          height: mdg($nucleons_height, h-sm-m),
+          width: 238px,
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        col-right: (
+          font-family: mdg($nucleons_typography_sizes, t-caption2-fat, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-caption2-fat, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-caption2-fat, letter-spacing),
+          text-align: mdg($nucleons_typography_sizes, t-caption2-fat, text-align),
+          line-height: mdg($nucleons_typography_sizes, t-caption2-fat, line-height),
+          extend: 't-caption2-fat',
+          text-transform: mdg($nucleons_typography_sizes, t-caption2-fat, text-transform),
+          color: mdg($nucleons_typography_themes, c-accent),
+          font-weight: mdg($nucleons_typography_sizes, t-caption2-fat, font-weight)
+        ),
+        col-left: (
+          font-family: mdg($nucleons_typography_sizes, t-caption2-fat, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-caption2-fat, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-caption2-fat, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-caption2-fat, line-height),
+          extend: 't-caption2-fat',
+          text-transform: mdg($nucleons_typography_sizes, t-caption2-fat, text-transform),
+          color: mdg($nucleons_typography_themes, c-accent),
+          font-weight: mdg($nucleons_typography_sizes, t-caption2-fat, font-weight)
+        )
+      )
+    ),
+    default: (
+      list-item: (
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-xs),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        item: (
+          background: mdg($nucleons_background, b-secondary-hi),
+          height: mdg($nucleons_height, h-sm-m),
+          width: 238px,
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        col-right: (
+          font-family: mdg($nucleons_typography_sizes, t-caption2-fat, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-caption2-fat, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-caption2-fat, letter-spacing),
+          text-align: mdg($nucleons_typography_sizes, t-caption2-fat, text-align),
+          line-height: mdg($nucleons_typography_sizes, t-caption2-fat, line-height),
+          extend: 't-caption2-fat',
+          text-transform: mdg($nucleons_typography_sizes, t-caption2-fat, text-transform),
+          color: mdg($nucleons_typography_themes, c-primary),
+          font-weight: mdg($nucleons_typography_sizes, t-caption2-fat, font-weight)
+        ),
+        col-left: (
+          font-family: mdg($nucleons_typography_sizes, t-caption2-fat, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-caption2-fat, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-caption2-fat, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-caption2-fat, line-height),
+          extend: 't-caption2-fat',
+          text-transform: mdg($nucleons_typography_sizes, t-caption2-fat, text-transform),
+          color: mdg($nucleons_typography_themes, c-primary),
+          font-weight: mdg($nucleons_typography_sizes, t-caption2-fat, font-weight)
+        )
+      )
+    )
+  )
+;

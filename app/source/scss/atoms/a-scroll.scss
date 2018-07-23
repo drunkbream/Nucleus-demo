@@ -1,0 +1,43 @@
+@import 'common/mixins';
+@import 'data/atom-scroll';
+
+@mixin atom-scroll($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $scroll-rail-default: (
+      scroll-rail: (background, width, border-radius),
+    );
+
+    $scroll-slider-default: (
+      scroll-slider: (background, height, width, border-radius),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        .scroll-rail {
+          @include set-state-props(mdg($atom, default, $name), $scroll-rail-default);
+        }
+        .scroll-slider {
+          @include set-state-props(mdg($atom, default, $name), $scroll-slider-default);
+        }
+      }
+    }
+  }
+};
+
+.scroll {
+  position: absolute;
+  right: 10px;
+  height: 100%;
+}
+
+.scroll-rail {
+  height: 100%;
+}
+
+.scroll-slider {
+  cursor: pointer;
+}
+
+@include atom-scroll($atom-scroll);

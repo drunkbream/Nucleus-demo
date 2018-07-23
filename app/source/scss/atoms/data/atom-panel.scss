@@ -1,0 +1,62 @@
+
+  @import 'nucleons_offset';
+  @import 'nucleons_width';
+  @import 'nucleons_background';
+  @import 'nucleons_shadow';
+  @import 'nucleons_radius';
+
+  $atom-panel: (
+    default: (
+      panel-lg: (
+        margin: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 33.90180878552972px,
+          width: mdg($nucleons_offset, o-md-xs),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 33.90180878552972px,
+          width: mdg($nucleons_offset, o-md-l),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        panel: (
+          background: mdg($nucleons_background, b-primary-higher),
+          height: 328.0000000000001px,
+          width: mdg($nucleons_width, w-lg-l),
+          box-shadow: mdg($nucleons_shadow, s-primary),
+          border-radius: mdg($nucleons_radius, r-sm)
+        )
+      ),
+      panel-sm: (
+        margin: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-sm-s),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-l),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        panel: (
+          background: mdg($nucleons_background, b-primary-higher),
+          height: 387.0000000000001px,
+          width: mdg($nucleons_width, w-md-s),
+          box-shadow: mdg($nucleons_shadow, s-primary),
+          border-radius: mdg($nucleons_radius, r-sm)
+        )
+      )
+    )
+  )
+;

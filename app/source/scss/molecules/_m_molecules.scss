@@ -1,0 +1,51 @@
+$page-max-width: 1196px;
+
+.list {
+  display: block;
+}
+
+.table {
+  width: 100%;
+}
+
+.panel-grid {
+  display: flex;
+  width: 90vw;
+  max-width: $page-max-width;
+  min-width: 960px;
+
+  [class^="panel"] + [class^="panel"] {
+    margin-left: mdg($atom-panel, default, panel-lg, margin, width);
+  }
+}
+
+.button-bar {
+  display: inline-block;
+}
+
+.unit-welcome {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  background-image: radial-gradient(50% 100%, #7073FF 0%, rgba(216,216,216,0.00) 100%);
+  width: 100%;
+  height: 100%;
+
+  .nucleon {
+    @extend %r-lg;
+
+    width: 100px;
+    height: 100px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .text {
+      @extend %t-body2;
+      @extend %c-primary;
+    }
+  }
+}

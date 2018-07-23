@@ -1,0 +1,32 @@
+@import 'common/mixins';
+@import 'data/atom-input-text';
+
+@mixin atom-input-text($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $input-text-default: (
+      input: (background, height, box-shadow, (line-height, height)),
+      padding: ((padding-left, width), (padding-right, width),),
+      text: (extend, color),
+    );
+
+    $input-text-active: (
+      text: (color),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @include set-state-props(mdg($atom, default, $name), $input-text-default);
+        @include set-state-props(mdg($atom, active, $name), $input-text-active, '.active');
+      }
+    }
+  }
+};
+
+.input-text {
+  width: 100%;
+  margin: 12px;
+}
+
+@include atom-input-text($atom-input-text);

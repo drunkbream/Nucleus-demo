@@ -1,0 +1,22 @@
+@import 'common/mixins';
+@import 'data/atom-table-cell';
+
+@mixin atom-table-cell($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $table-cell-default: (
+      text: (extend, color,),
+      cell: (background, box-shadow, (line-height, height),),
+      padding: ((padding-right, width), (padding-left, width),),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @include set-state-props(mdg($atom, default, $name), $table-cell-default);
+      }
+    }
+  }
+};
+
+@include atom-table-cell($atom-table-cell);

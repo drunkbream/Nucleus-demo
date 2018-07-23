@@ -1,0 +1,86 @@
+
+  @import 'nucleons_offset';
+  @import 'nucleons_height';
+  @import 'nucleons_background';
+  @import 'nucleons_typography_sizes';
+  @import 'nucleons_typography_themes';
+  @import 'nucleons_shadow';
+
+  $atom-table-cell: (
+    default: (
+      cell-even: (
+        padding: (
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        cell: (
+          background: mdg($nucleons_background, b-primary-hi),
+          height: mdg($nucleons_height, h-md-l),
+          width: 217px,
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-h5-short, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-h5-short, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-h5-short, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-h5-short, line-height),
+          extend: 't-h5-short',
+          text-transform: mdg($nucleons_typography_sizes, t-h5-short, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-h5-short, font-weight)
+        )
+      ),
+      cell-odd: (
+        padding: (
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        cell: (
+          height: mdg($nucleons_height, h-md-l),
+          width: 217px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary-low),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-h5-short, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-h5-short, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-h5-short, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-h5-short, line-height),
+          extend: 't-h5-short',
+          text-transform: mdg($nucleons_typography_sizes, t-h5-short, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-h5-short, font-weight)
+        )
+      ),
+      table-head: (
+        padding: (
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        cell: (
+          height: mdg($nucleons_height, h-md-l),
+          width: 217px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary-fat),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-h4-light-short, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-h4-light-short, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-h4-light-short, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-h4-light-short, line-height),
+          extend: 't-h4-light-short',
+          text-transform: mdg($nucleons_typography_sizes, t-h4-light-short, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-h4-light-short, font-weight)
+        )
+      )
+    )
+  )
+;

@@ -1,0 +1,50 @@
+@import 'common/mixins';
+@import 'data/atom-panel';
+
+@mixin atom-panel($extend, $maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $panel-default: (
+      panel: ((max-width, width), background, box-shadow, border-radius),
+      padding: ((padding, width),),
+      margin: ((margin-bottom, width),),
+    );
+
+    $panel-brother: (
+      margin: ((margin-left, width),),
+    );
+
+    $panel-fake: (
+      panel: ((max-width, width),),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @extend #{$extend};
+
+        @include set-state-props(mdg($atom, default, $name), $panel-default);
+      }
+
+      .#{$name}-fake,
+      .#{$name} {
+        & + [class^="panel"] {
+          @include set-state-props(mdg($atom, default, $name), $panel-brother);
+        }
+      }
+
+      .#{$name}-fake {
+        @extend #{$extend};
+        @include set-state-props(mdg($atom, default, $name), $panel-fake);
+      }
+    }
+  }
+};
+
+%panel {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+@include atom-panel('%panel', $atom-panel);

@@ -1,0 +1,60 @@
+@import 'common/mixins';
+@import 'data/atom-btn-secondary';
+@import 'data/atom-btn-primary';
+
+@mixin atom-btn($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $btn-default: (
+      button: (
+        (extend, %button),
+        background,
+        height,
+        border-radius,
+      ),
+      text: (extend, color,),
+      padding: (
+        (padding-left, width),
+        (padding-right, width),
+      ),
+      margin: (
+        (margin-left, width),
+        (margin-right, width),
+      )
+    );
+
+    $element-icon: (
+      icon: (height, width),
+    );
+
+    $element-icon-before: (
+      icon: (background-image, width, height)
+    );
+
+    $btn-hover: (
+      button: (background),
+      text: (color)
+    );
+
+    $btn-active: (
+      button: (background),
+      text: (color)
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @include set-state-props(mdg($atom, default, $name), $btn-default);
+        @include set-state-props(mdg($atom, hover, $name), $btn-hover, ':hover');
+        @include set-state-props(mdg($atom, active, $name), $btn-active, ':active');
+      }
+    }
+  }
+};
+
+button {
+  @extend %button;
+  @extend %first-last-margins;
+}
+
+@include atom-btn($atom-btn-primary, $atom-btn-secondary);

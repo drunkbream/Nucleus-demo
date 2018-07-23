@@ -1,0 +1,141 @@
+
+  @import 'nucleons_offset';
+  @import 'nucleons_height';
+  @import 'nucleons_background';
+  @import 'nucleons_shadow';
+  @import 'nucleons_typography_sizes';
+  @import 'nucleons_typography_themes';
+  @import 'nucleons_icons';
+
+  $atom-collapse: (
+    active: (
+      collapse-toggle: (
+        margin: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 32px,
+          width: mdg($nucleons_offset, o-sm-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-s),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        collapse: (
+          background: mdg($nucleons_background, b-primary-higher),
+          height: mdg($nucleons_height, h-md-l),
+          width: 238px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-button-uppercase-lg, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-button-uppercase-lg, line-height),
+          extend: 't-button-uppercase-lg',
+          text-transform: mdg($nucleons_typography_sizes, t-button-uppercase-lg, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-weight)
+        ),
+        icon: (
+          extend: 'i-arr-down-black',
+          height: mdg($nucleons_icons, i-arr-down-black, height),
+          width: mdg($nucleons_icons, i-arr-down-black, width),
+          background-image: mdg($nucleons_icons, i-arr-down-black, background-image)
+        )
+      )
+    ),
+    hover: (
+      collapse-toggle: (
+        margin: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 32px,
+          width: mdg($nucleons_offset, o-sm-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-s),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        collapse: (
+          background: mdg($nucleons_background, b-primary-higher),
+          height: mdg($nucleons_height, h-md-l),
+          width: 238px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-button-uppercase-lg, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-button-uppercase-lg, line-height),
+          extend: 't-button-uppercase-lg',
+          text-transform: mdg($nucleons_typography_sizes, t-button-uppercase-lg, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-weight)
+        ),
+        icon: (
+          extend: 'i-arr-down-black',
+          height: mdg($nucleons_icons, i-arr-down-black, height),
+          width: mdg($nucleons_icons, i-arr-down-black, width),
+          background-image: mdg($nucleons_icons, i-arr-down-black, background-image)
+        )
+      )
+    ),
+    default: (
+      collapse-toggle: (
+        margin: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 32px,
+          width: mdg($nucleons_offset, o-sm-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 40px,
+          width: mdg($nucleons_offset, o-md-s),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        collapse: (
+          background: mdg($nucleons_background, b-primary-hi),
+          height: mdg($nucleons_height, h-md-l),
+          width: 238px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary-low),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-button-uppercase-lg, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-button-uppercase-lg, line-height),
+          extend: 't-button-uppercase-lg',
+          text-transform: mdg($nucleons_typography_sizes, t-button-uppercase-lg, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-button-uppercase-lg, font-weight)
+        ),
+        icon: (
+          extend: 'i-arr-down-black',
+          height: mdg($nucleons_icons, i-arr-down-black, height),
+          width: mdg($nucleons_icons, i-arr-down-black, width),
+          background-image: mdg($nucleons_icons, i-arr-down-black, background-image)
+        )
+      )
+    )
+  )
+;

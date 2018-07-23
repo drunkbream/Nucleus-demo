@@ -1,0 +1,57 @@
+@import 'common/mixins';
+@import 'data/atom-collapse';
+
+@mixin atom-collapse($extend, $maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $collapse-default: (
+      text: (extend, color,),
+      collapse: (background, box-shadow, height, (text-align, left)),
+      padding: ((padding-right, width), (padding-left, width),),
+    );
+
+    $collapse-hover: (
+      collapse: (background),
+    );
+
+    $collapse-active: (
+      collapse: (background),
+    );
+
+    $element-icon: (
+      icon: (width, height)
+    );
+
+    $element-icon-before: (
+      icon: (background-image, width, height)
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @extend #{$extend};
+
+        @include set-state-props(mdg($atom, default, $name), $collapse-default);
+        @include set-state-props(mdg($atom, hover, $name), $collapse-hover, ':hover');
+        @include set-state-props(mdg($atom, active, $name), $collapse-active, '.active');
+
+        .icon {
+          @include set-state-props(mdg($atom, default, $name), $element-icon);
+          @include set-state-props(mdg($atom, default, $name), $element-icon-before, ':before');
+        }
+      }
+    }
+  }
+};
+
+
+.collapse-toggle {
+  position: relative;
+
+  .icon {
+    position: absolute;
+    right: 0;
+  }
+}
+
+@include atom-collapse('%btn', $atom-collapse);

@@ -1,0 +1,42 @@
+
+  @import 'nucleons_typography_sizes';
+  @import 'nucleons_typography_themes';
+  @import 'nucleons_offset';
+
+  $atom-typography: (
+    default: (
+      page-main-title: (
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-h2, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-h2, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-h2, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-h2, line-height),
+          extend: 't-h2',
+          text-transform: mdg($nucleons_typography_sizes, t-h2, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-h2, font-weight)
+        )
+      ),
+      panel-title: (
+        margin: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 26px,
+          width: mdg($nucleons_offset, o-md-s),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-h5-short, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-h5-short, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-h5-short, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-h5-short, line-height),
+          extend: 't-h5-short',
+          text-transform: mdg($nucleons_typography_sizes, t-h5-short, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-h5-short, font-weight)
+        )
+      )
+    )
+  )
+;

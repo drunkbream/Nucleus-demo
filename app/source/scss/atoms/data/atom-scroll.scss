@@ -1,0 +1,27 @@
+
+  @import 'nucleons_width';
+  @import 'nucleons_radius';
+  @import 'nucleons_background';
+  @import 'nucleons_height';
+
+  $atom-scroll: (
+    default: (
+      scroll: (
+        scroll-rail: (
+          background: mdg($nucleons_background, b-primary-hi),
+          height: 354px,
+          width: mdg($nucleons_width, w-xs-xs),
+          box-shadow: none,
+          border-radius: mdg($nucleons_radius, r-lg)
+        ),
+        scroll-slider: (
+          background: mdg($nucleons_background, b-primary),
+          height: mdg($nucleons_height, h-md-m),
+          width: mdg($nucleons_width, w-xs-xs),
+          box-shadow: none,
+          border-radius: mdg($nucleons_radius, r-lg)
+        )
+      )
+    )
+  )
+;

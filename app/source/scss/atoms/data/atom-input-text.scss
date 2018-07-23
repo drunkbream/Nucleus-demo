@@ -1,0 +1,69 @@
+
+  @import 'nucleons_offset';
+  @import 'nucleons_shadow';
+  @import 'nucleons_height';
+  @import 'nucleons_background';
+  @import 'nucleons_typography_sizes';
+  @import 'nucleons_typography_themes';
+
+  $atom-input-text: (
+    active: (
+      input-text: (
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 16px,
+          width: mdg($nucleons_offset, o-sm-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        input: (
+          background: mdg($nucleons_background, b-primary-higher),
+          height: mdg($nucleons_height, h-md-l),
+          width: 717px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-body1-short, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-body1-short, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-body1-short, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-body1-short, line-height),
+          extend: 't-body1-short',
+          text-transform: mdg($nucleons_typography_sizes, t-body1-short, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary),
+          font-weight: mdg($nucleons_typography_sizes, t-body1-short, font-weight)
+        )
+      )
+    ),
+    default: (
+      input-text: (
+        padding: (
+          background: #D8D8D8,
+          border: 1px solid #979797,
+          height: 16px,
+          width: mdg($nucleons_offset, o-sm-m),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        input: (
+          background: mdg($nucleons_background, b-primary-higher),
+          height: mdg($nucleons_height, h-md-l),
+          width: 717px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary),
+          border-radius: 0px 0px 0px 0px
+        ),
+        text: (
+          font-family: mdg($nucleons_typography_sizes, t-body1-short, font-family),
+          font-size: mdg($nucleons_typography_sizes, t-body1-short, font-size),
+          letter-spacing: mdg($nucleons_typography_sizes, t-body1-short, letter-spacing),
+          line-height: mdg($nucleons_typography_sizes, t-body1-short, line-height),
+          extend: 't-body1-short',
+          text-transform: mdg($nucleons_typography_sizes, t-body1-short, text-transform),
+          color: mdg($nucleons_typography_themes, c-secondary-lowest),
+          font-weight: mdg($nucleons_typography_sizes, t-body1-short, font-weight)
+        )
+      )
+    )
+  )
+;

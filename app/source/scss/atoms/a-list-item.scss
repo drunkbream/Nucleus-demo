@@ -1,0 +1,65 @@
+@import 'common/mixins';
+@import 'data/atom-list';
+
+@mixin atom-list-item($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $list-item-default: (
+      item: (
+        background,
+        height,
+        (display, inline-block),
+        (width, 100%),
+        (cursor, pointer),
+        (line-height, height)
+      ),
+      padding: ((padding-left, width), (padding-right, width),),
+      col-left: (color,),
+    );
+
+    $element-col: (
+      col-left: (extend, (display, inline-block), (width, 50%),),
+    );
+
+    $element-col-left: (
+      col-left: ((text-align, left),),
+    );
+
+    $element-col-right: (
+      col-right: ((text-align, right),),
+    );
+
+    $list-item-hover: (
+      item: (background),
+      col-left: (color,),
+    );
+
+    $list-item-active: (
+      item: (background),
+      col-left: (color,),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @include set-state-props(mdg($atom, default, $name), $list-item-default);
+        @include set-state-props(mdg($atom, hover, $name), $list-item-hover, ':hover');
+        @include set-state-props(mdg($atom, active, $name), $list-item-active, ':active');
+        @include set-state-props(mdg($atom, active, $name), $list-item-active, '.active');
+
+        .col-left, .col-right {
+          @include set-state-props(mdg($atom, default, $name), $element-col);
+        }
+
+        .col-right {
+          @include set-state-props(mdg($atom, default, $name), $element-col-right);
+        }
+        .col-left {
+          @include set-state-props(mdg($atom, default, $name), $element-col-left);
+        }
+      }
+    }
+  }
+};
+
+@include atom-list-item($atom-list);

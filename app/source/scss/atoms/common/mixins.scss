@@ -1,0 +1,156 @@
+@function mdg($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function to-map($value) {
+  @return if(type-of($value) != map, (1: $value), $value);
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function get-names($map){
+  $states: map-keys($map);
+  $names: ();
+
+  @each $state in $states {
+    $names: map-keys(mdg($map, $state));
+  }
+
+  @return $names;
+};
+
+@function get-elements($map){
+  $names: get-names($map);
+  $states: map-keys($map);
+  $elements: ();
+
+  @each $state in $states {
+    @each $name in $names {
+      $elements: map-keys(mdg($map, $state, $name));
+    }
+  }
+
+  @return $elements;
+};
+
+@function get-elements-props($map, $state, $names, $elements){
+  $elements-props: ();
+
+  @each $name, $elements in map-get($map, $state) {
+    $element-props: (#{$name}: ($elements));
+    $elements-props: map-merge($element-props, $elements-props);
+  }
+
+  @return $elements-props;
+};
+
+@function get-states-props($map, $states, $names, $elements){
+  $states-props: ();
+
+  @each $state in $states {
+    $state-props: (#{$state}: (get-elements-props($map, $state, $names, $elements)));
+    $states-props: map-merge($states-props, $state-props);
+  }
+
+  $info: (
+    'names': $names,
+    'states': $states,
+    'elements': $elements
+  );
+
+  @return map-merge($states-props, $info);
+}
+
+@function is-list($list, $var) {
+  @return (null != index($list, $var));
+}
+
+@function atom($atom-map){
+  $names: get-names($atom-map);
+  $states: map-keys($atom-map);
+  $elements: get-elements($atom-map);
+  $props: get-states-props($atom-map, $states, $names, $elements);
+
+  @return $props;
+};
+
+// @mixin prop-compiler($prop){
+//   @if type-of($prop) == string {
+//     #{$prop}: if(map-has-key($map, $key), mdg($map, $key, $prop), null);
+//   } @else if type-of($prop) == map {
+//
+//   }
+// };
+
+@mixin props-loader($map, $props){
+  @each $key, $values in $props {
+    @each $prop in $values {
+      @if $prop == 'extend' and type-of($prop) != 'list' {
+        @extend %#{mdg($map, $key, $prop)};
+      } @else if nth($prop, 1) == 'extend' and type-of($prop) == 'list' {
+        // @if nth($prop, 2) == $key and map-has-key($map, $key) {
+        //   $if-key: map-has-key(mdg($map, $key), nth($prop, 2));
+        //
+        //   %#{$key} {
+        //     #{nth($prop, 2)}: if($if-key, mdg($map, $key, nth($prop, 2)), nth($prop, 2));
+        //   }
+        //   @extend %#{$key};
+        //
+        // } @else {
+        //   @extend %#{nth($prop, 2)};
+        // }
+        @extend %#{nth($prop, 2)};
+      } @else if type-of($prop) != 'list' {
+        #{$prop}: if(map-has-key($map, $key), mdg($map, $key, $prop), null);
+      } @else if map-has-key($map, $key) {
+        $if-key: map-has-key(mdg($map, $key), nth($prop, 2));
+        #{nth($prop, 1)}: if($if-key, mdg($map, $key, nth($prop, 2)), nth($prop, 2));
+      }
+    }
+  }
+};
+
+@mixin set-state-props($atom, $props, $selector: false){
+  @if $selector == false {
+    @include props-loader($atom, $props);
+  } @else {
+    &#{$selector} {
+      @include props-loader($atom, $props);
+    }
+  }
+};
+
+@mixin get-rules($props, $exemplar) {
+  @each $prop in $props {
+    @if type-of($exemplar) == map {
+      #{$prop}: #{map-get($exemplar, $prop)};
+    } @else {
+      #{$prop}: $exemplar;
+    }
+  }
+}
+
+@mixin helper-generator($map, $method,  $prefix: '', $props...) {
+  $names: map-keys($map);
+
+  @each $name in $names {
+    $exemplar: mdg($map, $name);
+
+    @if $method == 'class' {
+      .#{$prefix}#{$name} { @include get-rules($props, $exemplar)}
+    } @else if $method == 'extend' {
+      %#{$prefix}#{$name} { @include get-rules($props, $exemplar)}
+    }
+  }
+}

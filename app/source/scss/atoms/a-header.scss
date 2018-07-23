@@ -1,0 +1,31 @@
+@import 'common/mixins';
+@import 'data/atom-header';
+
+@mixin atom-header($maps...) {
+  @each $map in $maps {
+    $atom: atom($map);
+
+    $header-default: (
+      header: ((display, inline-block), height, background, (width, 100%), (line-height, height), box-shadow),
+      margin: ((margin-bottom, width),),
+    );
+
+    @each $name in mdg($atom, names) {
+      .#{$name} {
+        @include set-state-props(mdg($atom, default, $name), $header-default);
+      }
+    }
+  }
+};
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 1196px;
+  min-width: 960px;
+}
+
+@include atom-header($atom-header);

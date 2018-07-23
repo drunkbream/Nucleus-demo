@@ -1,0 +1,24 @@
+
+  @import 'nucleons_offset';
+  @import 'nucleons_height';
+  @import 'nucleons_shadow';
+
+  $atom-header: (
+    default: (
+      header: (
+        margin: (
+          height: 94px,
+          width: mdg($nucleons_offset, o-md-s),
+          box-shadow: none,
+          border-radius: 0px 0px 0px 0px
+        ),
+        header: (
+          height: mdg($nucleons_height, h-lg-xl),
+          width: 1444px,
+          box-shadow: mdg($nucleons_shadow, s-border-primary),
+          border-radius: 0px 0px 0px 0px
+        )
+      )
+    )
+  )
+;
